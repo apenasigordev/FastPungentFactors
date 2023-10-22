@@ -1,6 +1,7 @@
 import * as THREE from 'three' ;
 
-// import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+
 // The three.js scene: the 3D world where you put objects
 const scene = new THREE.Scene();
 
@@ -28,6 +29,25 @@ const material = new THREE.MeshBasicMaterial( { map: texture } );
 const sphere = new THREE.Mesh( geometry, material );
 
 scene.add( sphere );
+
+const materials = [
+	new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
+	new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
+]
+
+const textgeo = new TextGeometry( 'What The Floosh Game 3D!', {
+	size: 80,
+	height: 5,
+	curveSegments: 12,
+	bevelEnabled: true,
+	bevelThickness: 10,
+	bevelSize: 8,
+	bevelOffset: 0,
+	bevelSegments: 5
+})
+textgeo.computeBoundingBox()
+const text = new THREE.Mesh(textgeo, materials )
+// This may not work
 
 camera.position.z = 5
 
