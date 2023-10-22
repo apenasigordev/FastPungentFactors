@@ -7,8 +7,17 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <!-- Including the three.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Including the three.js library
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.min.js"></script
+    -->
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/"
+    }
+  }
+</script>
+    <script src="./script.mjs" type="module"></script>
   </body>
 </html>

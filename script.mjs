@@ -1,3 +1,6 @@
+import * as THREE from 'three' ;
+
+// import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 // The three.js scene: the 3D world where you put objects
 const scene = new THREE.Scene();
 
@@ -30,8 +33,8 @@ camera.position.z = 5
 
 function render() {
 	renderer.render(scene, camera);
-        sphere.rotation.x += 0.05;
-	sphere.rotation.y -= 0.05
+ // sphere.rotation.x += 0.05;
+ sphere.rotation.y -= 0.05;
 	requestAnimationFrame(render);
 }
 
