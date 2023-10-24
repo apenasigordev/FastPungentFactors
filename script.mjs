@@ -24,26 +24,9 @@ const texture = new THREE.TextureLoader().load('textures/floosh.png' );
 
 const geometry = new THREE.SphereGeometry( 1, 64, 32 );
 
-const material = new THREE.MeshPhongMaterial( { map: texture } );
+const material = new THREE.MeshBasicMaterial( { map: texture } );
 
 const sphere = new THREE.Mesh( geometry, material );
-
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-scene.add( directionalLight );
-
-const colors = [
-	0xffffff,
-	0xff0000,
-	0x00ff00,
-	0x0000ff
-]
-const color1 = colors[Math.floor(Math.random() * colors.length)]
-const color2 = colors[Math.floor(Math.random() * colors.length)]
-const color3 = colors[Math.floor(Math.random() * colors.length)]
-
-const light = new THREE.PointLight( color1, 1, 100 );
-light.position.set( 5, 8, 10 );
-scene.add( light );
 
 scene.add( sphere );
 
@@ -52,7 +35,7 @@ camera.position.z = 5
 function render() {
 	renderer.render(scene, camera);
         // sphere.rotation.x += 0.05;
-        sphere.rotation.y -= 0.1;
+        sphere.rotation.y -= 0.08;
 	requestAnimationFrame(render);
 }
 
