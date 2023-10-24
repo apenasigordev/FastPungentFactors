@@ -24,37 +24,21 @@ const texture = new THREE.TextureLoader().load('textures/floosh.png' );
 
 const geometry = new THREE.SphereGeometry( 1, 64, 32 );
 
-const material = new THREE.MeshBasicMaterial( { map: texture } );
+const material = new THREE.MeshPhongMaterial( { map: texture } );
 
 const sphere = new THREE.Mesh( geometry, material );
 
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+scene.add( directionalLight );
+
 scene.add( sphere );
-
-const materials = [
-	new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } ), // front
-	new THREE.MeshPhongMaterial( { color: 0xffffff } ) // side
-]
-
-const textgeo = new TextGeometry( 'What The Floosh Game 3D!', {
-	size: 80,
-	height: 5,
-	curveSegments: 12,
-	bevelEnabled: true,
-	bevelThickness: 10,
-	bevelSize: 8,
-	bevelOffset: 0,
-	bevelSegments: 5
-})
-textgeo.computeBoundingBox()
-const text = new THREE.Mesh(textgeo, materials )
-// This may not work
 
 camera.position.z = 5
 
 function render() {
 	renderer.render(scene, camera);
- // sphere.rotation.x += 0.05;
- sphere.rotation.y -= 0.05;
+        // sphere.rotation.x += 0.05;
+        sphere.rotation.y -= 0.05;
 	requestAnimationFrame(render);
 }
 
